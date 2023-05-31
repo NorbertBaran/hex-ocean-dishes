@@ -1,4 +1,4 @@
-export const postDish = async (body, setValue) => {
+export const postDish = async (body: object, setValue: (value: any) => any) => {
     const url = "https://umzzcc503l.execute-api.us-west-2.amazonaws.com/dishes/"
     await fetch(url, {
         method: "POST",

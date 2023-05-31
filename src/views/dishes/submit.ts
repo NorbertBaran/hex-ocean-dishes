@@ -1,6 +1,9 @@
 import {postDish} from "../../api/api";
 
-export const submit = (event, name, preparationTime, type, pizzaValues, soupValues, sandwichValues, setTimerRequiredInfoDisplay, setResponse) => {
+export const submit = (event: any, name: string, preparationTime: any, type: string,
+                       pizzaValues: any, soupValues: any, sandwichValues: any,
+                       setTimerRequiredInfoDisplay: (timeRequiredInfoDisplay: boolean) => void,
+                       setResponse: (response: any) => void) => {
     event.preventDefault()
     //Only timer need to be checked. Another fields use MUI required field
     if(preparationTime.hours == "--"){
@@ -10,8 +13,8 @@ export const submit = (event, name, preparationTime, type, pizzaValues, soupValu
     }
 
     //Request body building after validation
-    const decorateTime = time => time > 9 ? time : "0" + time
-    const request = {
+    const decorateTime = (time: number) => time > 9 ? time : "0" + time
+    const request: any = {
         name: name,
         preparation_time: decorateTime(preparationTime.hours) + ':' +
             decorateTime(preparationTime.minutes) + ':' +

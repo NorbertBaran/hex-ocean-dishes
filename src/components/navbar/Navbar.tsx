@@ -1,8 +1,9 @@
 import {AppBar, Container, Toolbar} from "@mui/material";
 import HexOcean from "../../assets/HexOcean.png"
 import {container, toolbar, logo} from "./style";
+import {FC} from "react";
 
-export const Navbar = () => {
+export const Navbar: FC = () => {
     return (
         <>
             <AppBar elevation={0} color="default">

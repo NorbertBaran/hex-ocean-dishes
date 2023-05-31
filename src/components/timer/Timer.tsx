@@ -1,15 +1,28 @@
-import {Alert, Box, Snackbar, Typography} from "@mui/material";
+import {Alert, Box, Typography} from "@mui/material";
 import {MultiSectionDigitalClock} from "@mui/x-date-pickers";
 import {clock, requiredInfo, timer} from "./style";
+import {FC} from "react";
 
-const TimeTypography = ({color, children}) => {
-    const decorateTime = time => time > 9 ? time : "0" + time
-    const decorateChild = child => child != "--" ? decorateTime(child) : '--'
+interface ITimeTypography {
+    color?: string
+    children: any
+}
+
+interface ITimer {
+    label: string
+    value: any
+    setValue: (value: any) => void
+    requiredInfoDisplay: boolean
+}
+
+const TimeTypography: FC<ITimeTypography> = ({color, children}) => {
+    const decorateTime = (time: number) => time > 9 ? time : "0" + time
+    const decorateChild = (child: number|"--") => child != "--" ? decorateTime(child) : '--'
     return <Typography display="inline" variant="h3" color={color}>{decorateChild(children)}</Typography>
 }
 
-export const Timer = ({label, value, setValue, requiredInfoDisplay = false}) => {
-    const setValueField = event => setValue({hours: event.$H, minutes: event.$m, seconds: event.$s})
+export const Timer: FC<ITimer> = ({label, value, setValue, requiredInfoDisplay = false}) => {
+    const setValueField = (event: any) => setValue({hours: event.$H, minutes: event.$m, seconds: event.$s})
 
     return <>
         <Typography>{label}</Typography>

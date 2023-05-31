@@ -1,7 +1,12 @@
 import {Box, Slider, Typography} from "@mui/material";
+import {FC} from "react";
 
-export const Soup = ({values, setValues}) => {
-    const setSpicinessScale = event => setValues({spicinessScale: event.target.value})
+export interface ISoup {
+    setValues: (values: any) => void
+}
+
+export const Soup: FC<ISoup> = ({setValues}) => {
+    const setSpicinessScale = (event: any) => setValues({spicinessScale: event.target.value})
 
     return <>
         <Box>

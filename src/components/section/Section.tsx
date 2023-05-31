@@ -1,7 +1,12 @@
-import {Box, Typography, useTheme} from "@mui/material";
+import {Box, Typography} from "@mui/material";
 import {header, section} from "./style";
+import {FC} from "react";
 
-export const Section = ({label}) => {
+interface ISection {
+    label: string
+}
+
+export const Section: FC<ISection> = ({label}) => {
     return (
         <Box sx={section}>
             <Typography variant="h4" sx={header}>

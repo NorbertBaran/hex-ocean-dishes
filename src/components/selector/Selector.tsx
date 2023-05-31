@@ -1,8 +1,15 @@
 import {FormControl, MenuItem, Select, Typography} from "@mui/material";
+import {FC} from "react";
 
-export const Selector = ({items, placeholder, setValue}) => {
-    const renderPlaceholder = selected => selected ? selected : <Typography color="text.disabled">{placeholder}</Typography>
-    const setValueField = event => setValue(event.target.value)
+interface ISelector {
+    items: string[]
+    placeholder: string
+    setValue: (value: string) => void
+}
+
+export const Selector: FC<ISelector> = ({items, placeholder, setValue}) => {
+    const renderPlaceholder = (selected: string) => selected ? selected : <Typography color="text.disabled">{placeholder}</Typography>
+    const setValueField = (event: any) => setValue(event.target.value)
 
     return <>
         <FormControl variant="standard">

@@ -1,6 +1,13 @@
 import {Alert, Snackbar} from "@mui/material";
+import {FC} from "react";
 
-export const ResponseSnackbar = ({status, responseStatus, setResponseStatus}) => {
+interface IResponseSnackbar {
+    status: "success" | "error" | undefined
+    responseStatus: "success" | "error" | undefined
+    setResponseStatus: (responseStatus: "success" | "error" | undefined) => void
+}
+
+export const ResponseSnackbar: FC<IResponseSnackbar> = ({status, responseStatus, setResponseStatus}) => {
     return <>
         <Snackbar
             open={responseStatus == status}
