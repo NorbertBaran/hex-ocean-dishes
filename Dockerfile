@@ -1,12 +1,11 @@
-FROM node:18-alpine3.17 as build
+FROM node:18.16.0-alpine as build
 WORKDIR /app
 COPY . /app
-RUN npm install
-RUN npm run build
+RUN yarn install
+RUN yarn build
 
-FROM ubuntu
-RUN apt-get update
-RUN apt-get install nginx -y
-COPY --from=build /app/dist /var/www/html/
+FROM nginx:1.25.0-alpine
+WORKDIR /usr/share/nginx/html
+COPY --from=build /app/dist .
 EXPOSE 80
 CMD ["nginx","-g","daemon off;"]
