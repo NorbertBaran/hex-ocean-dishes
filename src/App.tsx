@@ -3,14 +3,12 @@ import {ThemeProvider} from "@mui/material";
 import {theme} from "./theme";
 import {LocalizationProvider} from "@mui/x-date-pickers";
 import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
-import {Navbar} from "./components/Navbar";
-import {Banner} from "./components/Banner";
-import {ContentLayout} from "./components/ContentLayout";
-import {Form} from "./components/form/Form";
-import {Footer} from "./components/Footer";
+import {Navbar} from "./components/navbar/Navbar";
+import {Banner} from "./components/banner/Banner";
+import {ContentLayout} from "./components/contentLayout/ContentLayout";
+import {Dishes} from "./views/dishes/Dishes";
 
 function App() {
-    const [textField, setTextField] = useState("")
     return (
         <ThemeProvider
             theme={theme}>
@@ -18,11 +16,10 @@ function App() {
                 dateAdapter={AdapterDayjs}
             >
                 <Navbar/>
-                <Banner/>
+                <Banner first="CUSTOM" second="Dishes"/>
                 <ContentLayout>
-                    <Form/>
+                    <Dishes/>
                 </ContentLayout>
-                <Footer/>
             </LocalizationProvider>
         </ThemeProvider>
     )
