@@ -1,0 +1,18 @@
+version: '3'
+services:
+  
+  hex-ocean-dishes-client:
+    image: hex-ocean-dishes-client
+    container_name: hex-ocean-dishes-client
+    build:
+      context: client
+      args:
+        - CONFIG=${CLIENT_CONFIG}
+      dockerfile: Dockerfile
+    ports:
+      - ${CLIENT_PORT}:80
+    networks:
+      - hex-ocean-dishes
+
+networks:
+  hex-ocean-dishes:
