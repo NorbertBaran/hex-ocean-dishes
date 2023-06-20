@@ -16,3 +16,5 @@ services:
 
 networks:
   hex-ocean-dishes:
+    name: hex-ocean-dishes
+    driver: bridge
