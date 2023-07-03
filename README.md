@@ -1,7 +1,7 @@
 # HexOcean Dishes - recruitment task
 
 ### Production:
-HexOcean Dishes live preview available [here](http://3.68.78.96/hex-ocean-dishes).\
+HexOcean Dishes live preview available [here](http://quecto.pl/hex-ocean-dishes).\
 Deployed on Amazon Web Services.
 
 ### Local preview:
